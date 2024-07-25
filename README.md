@@ -1,24 +1,96 @@
-# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type   | Options                        |
+| ------------------ | ------ | ------------------------------ |
+| name               | string | null: false                    |
+| email              | string | null: false, unique: true      |
+| password_confirmation| string | null: false                    |
+| first_name         | string | null: false                    |
+| last_name          | string | null: false                    |
+| first_name_kana    | string | null: false                    |
+| last_name_kana     | string | null: false                    |
+| birthday           | date   | null: false                    |
 
-Things you may want to cover:
+### Association
+- has_many :requests
+- has_many :products
+- has_many :purchases
 
-* Ruby version
+## requests テーブル
 
-* System dependencies
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| title        | string     | null: false                    |
+| description  | text       | null: false                    |
+| category_id  | integer    | null: false                    |
+| max_price    | integer    | null: false                    |
+| min_price    | integer    | null: false                    |
+| user         | references | null: false, foreign_key: true |
+| image        | string     |                                |
+| shipping_charge_id  | integer    | null: false                    |
 
-* Configuration
+### Association
+- belongs_to :user
+- has_many :products
+- has_many :comments
 
-* Database creation
+## products テーブル
 
-* Database initialization
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| title        | string     | null: false                    |
+| description  | text       | null: false                    |
+| price        | integer    | null: false                    |
+| user         | references | null: false, foreign_key: true |
+| request      | references | null: false, foreign_key: true |
+| image        | string     |                                |
+| condition_id        | integer    | null: false                    |
+| shipping_area_id    | integer    | null: false                    |
+| shipping_day_id     | integer    | null: false                    |
 
-* How to run the test suite
+### Association
+- belongs_to :user
+- belongs_to :request
+- has_one :purchase
 
-* Services (job queues, cache servers, search engines, etc.)
+## purchases テーブル
 
-* Deployment instructions
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| postal_code         | string     | null: false                    |
+| shipping_area_id    | integer    | null: false                    |
+| city                | string     | null: false                    |
+| address             | string     | null: false                    |
+| building_name       | string     |                                |
+| phone_number        | string     | null: false                    |
+| history             | references | null: false, foreign_key: true |
 
-* ...
+### Association
+- belongs_to ：history
+
+## histories テーブル
+
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| user                | references | null: false, foreign_key: true |
+| product             | references | null: false, foreign_key: true |
+| request             | references | null: false, foreign_key: true |
+
+### Association
+
+  - belongs_to :user
+  - belongs_to :product
+  - belongs_to :request
+
+
+## question_response テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| content      | text       | null: false                    |
+| user         | references | null: false, foreign_key: true |
+| request      | references | null: false, foreign_key: true |
+
+### Association
+  - belongs_to :user
+  - belongs_to :request
