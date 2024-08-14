@@ -15,6 +15,7 @@
 - has_many :requests
 - has_many :products
 - has_many :purchases
+- has_one  :histories
 
 ## requests テーブル
 
