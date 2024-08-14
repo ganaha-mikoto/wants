@@ -70,3 +70,16 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+group :production do
+  gem 'unicorn', '6.1.0'
+end
+
+gem 'devise'
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+gem 'active_hash'
+gem 'pry-rails'
+gem 'payjp'
+gem 'gon'
+gem "aws-sdk-s3", require: false
