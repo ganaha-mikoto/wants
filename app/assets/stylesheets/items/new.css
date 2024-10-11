@@ -24,7 +24,7 @@
 }
 
 .items-sell-title {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
 }
@@ -42,6 +42,7 @@
 
 .weight-bold-text {
   font-weight: bold;
+  font-size: 20px;
   min-width: 170px;
   margin-bottom: 10px;
 }
