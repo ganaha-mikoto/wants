@@ -47,7 +47,7 @@
           <span class="indispensable">必須</span>
         </div>
           <%# <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-category"}) %>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
       </div>
     </div>
     <%# /商品の詳細 %>
@@ -64,7 +64,7 @@
           <span class="indispensable">必須</span>
         </div>
           <%# <%= f.collection_select(:shipping_charge_id, ShippingCharge.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %> 
-        <%= f.collection_select(:hoge, [], :hoge, :hoge, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+          <%= f.collection_select(:shipping_charge_id, ShippingCharge.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
       </div>
     </div>
     <%# /配送について %>
@@ -82,7 +82,7 @@
             <span class="indispensable">必須</span>
           </div>
           <span class="sell-yen">¥</span>
-          <%= f.text_field :hoge, class:"price-input", id:"item-price", placeholder:"例）300" %>
+            <%= f.text_field :max_price, class:"price-input", id:"item-price", placeholder:"例）300" %>
         </div>
                 <div class="price-content">
           <div class="price-text">
@@ -90,7 +90,7 @@
             <span class="indispensable">必須</span>
           </div>
           <span class="sell-yen">¥</span>
-          <%= f.text_field :hoge, class:"price-input", id:"item-price", placeholder:"例）300" %>
+            <%= f.text_field :min_price, class:"price-input", id:"item-price", placeholder:"例）300" %>
         </div>
         
       </div>
